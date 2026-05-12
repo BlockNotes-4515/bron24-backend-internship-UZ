@@ -55,5 +55,7 @@ Backend development projects and contributions for the Bron24 sports venue booki
 ## ⚖️ Performance Standards
 [cite_start]As this is a performance-based internship, my continuation depends on dedication, discipline, and the quality of contributions delivered throughout the two-month period[cite: 16].
 
+"O'zbekistonning sport maydonchalarini bron qilish platformasini rivojlantirishga hissa qo'shish."
+
 ---
 [cite_start]*Internship confirmed by Jahongir Masharipov, Founder & CEO of Bron24.* [cite: 22, 23]
