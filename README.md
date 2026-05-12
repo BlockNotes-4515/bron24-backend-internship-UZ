@@ -58,81 +58,18 @@ Backend development projects and contributions for the Bron24 sports venue booki
 "O'zbekistonning sport maydonchalarini bron qilish platformasini rivojlantirishga hissa qo'shish."
 
 ---
-[cite_start]*Internship confirmed by Jahongir Masharipov, Founder & CEO of Bron24.* [cite: 22, 23]
+---
 
+## 🤝 Contact & Acknowledgments
+
+* [cite_start]**Organization**: [Bron24](https://bron24.uz) [cite: 10, 24]
+* [cite_start]**Mentor/CEO**: Jahongir Masharipov [cite: 22, 23]
+* [cite_start]**Duration**: May 4 – July 3, 2026 [cite: 14]
+
+> "Kelajakni birgalikda quramiz."  
+> *(Building the future together.)*
+
+---
+[cite_start]*This repository is maintained by Dhruv Dhayal as part of the Backend Engineering Internship program.* [cite: 5, 9, 14]
 
 <!-- TAILWIND CSS FOR THE FOOTER -->
-<style>
-  .particles-bg {
-    position: relative;
-    overflow: hidden;
-    padding: 60px 20px;
-    border-radius: 20px;
-
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  /* Particle base */
-  .particles-bg span {
-    position: absolute;
-    display: block;
-    width: 6px;
-    height: 6px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 50%;
-    animation: float 10s linear infinite;
-    opacity: 0.6;
-  }
-
-  /* Floating animation */
-  @keyframes float {
-    0% {
-      transform: translateY(100px) scale(0.5);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-500px) scale(1.2);
-      opacity: 0;
-    }
-  }
-
-  /* Random particle positions */
-  .p1 { left: 10%; animation-duration: 8s; }
-  .p2 { left: 20%; animation-duration: 12s; }
-  .p3 { left: 30%; animation-duration: 10s; }
-  .p4 { left: 40%; animation-duration: 14s; }
-  .p5 { left: 50%; animation-duration: 9s; }
-  .p6 { left: 60%; animation-duration: 11s; }
-  .p7 { left: 70%; animation-duration: 13s; }
-  .p8 { left: 80%; animation-duration: 7s; }
-  .p9 { left: 90%; animation-duration: 15s; }
-</style>
-
-<div class="particles-bg">
-  
-  <span class="p1"></span>
-  <span class="p2"></span>
-  <span class="p3"></span>
-  <span class="p4"></span>
-  <span class="p5"></span>
-  <span class="p6"></span>
-  <span class="p7"></span>
-  <span class="p8"></span>
-  <span class="p9"></span>
-
-  <h2 align="center" style="color:white;">
-    ✨ GitHub README Particle Background
-  </h2>
-
-  <p align="center" style="color:#cbd5e1;">
-    Glassmorphism + Floating Animation UI
-  </p>
-
-</div>
