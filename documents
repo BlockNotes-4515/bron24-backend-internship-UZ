@@ -1,0 +1,7 @@
+├── docs/                 # Documentation, API specs, and meeting notes
+├── src/                  # Main source code
+├── tests/                # Unit and integration tests
+├── scripts/              # Useful automation or database scripts
+├── .gitignore            # Essential to keep environment variables private
+├── README.md             # Project overview and setup instructions
+└── CONTRIBUTING.md       # Notes on your workflow and branch naming
