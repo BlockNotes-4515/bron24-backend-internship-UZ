@@ -62,131 +62,77 @@ Backend development projects and contributions for the Bron24 sports venue booki
 
 
 <!-- TAILWIND CSS FOR THE FOOTER -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Particles Background</title>
-
 <style>
-  body {
-    margin: 0;
-    overflow: hidden;
-    background: #0f172a;
-    font-family: sans-serif;
-  }
-
-  /* Canvas covers full screen */
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-
-  /* Optional glass content layer */
-  .content {
+  .particles-bg {
     position: relative;
-    z-index: 1;
-    color: white;
-    text-align: center;
-    margin-top: 20%;
-    font-size: 24px;
-  }
-</style>
-</head>
+    overflow: hidden;
+    padding: 60px 20px;
+    border-radius: 20px;
 
-<body>
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
-<canvas id="particles"></canvas>
-
-<div class="content">
-  ✨ Floating Particles Background
-</div>
-
-<script>
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particlesArray = [];
-
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 3 + 1;
-    this.speedX = Math.random() * 1 - 0.5;
-    this.speedY = Math.random() * 1 - 0.5;
+    border: 1px solid rgba(255,255,255,0.1);
   }
 
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if (this.x > canvas.width) this.x = 0;
-    if (this.x < 0) this.x = canvas.width;
-    if (this.y > canvas.height) this.y = 0;
-    if (this.y < 0) this.y = canvas.height;
+  /* Particle base */
+  .particles-bg span {
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    animation: float 10s linear infinite;
+    opacity: 0.6;
   }
 
-  draw() {
-    ctx.fillStyle = "rgba(255,255,255,0.7)";
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
-}
-
-function init() {
-  for (let i = 0; i < 120; i++) {
-    particlesArray.push(new Particle());
-  }
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (let i = 0; i < particlesArray.length; i++) {
-    particlesArray[i].update();
-    particlesArray[i].draw();
-  }
-
-  connectParticles();
-  requestAnimationFrame(animate);
-}
-
-/* Connecting lines between nearby particles */
-function connectParticles() {
-  for (let a = 0; a < particlesArray.length; a++) {
-    for (let b = a; b < particlesArray.length; b++) {
-      let dx = particlesArray[a].x - particlesArray[b].x;
-      let dy = particlesArray[a].y - particlesArray[b].y;
-      let distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < 120) {
-        ctx.strokeStyle = "rgba(255,255,255,0.08)";
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-        ctx.stroke();
-      }
+  /* Floating animation */
+  @keyframes float {
+    0% {
+      transform: translateY(100px) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-500px) scale(1.2);
+      opacity: 0;
     }
   }
-}
 
-init();
-animate();
+  /* Random particle positions */
+  .p1 { left: 10%; animation-duration: 8s; }
+  .p2 { left: 20%; animation-duration: 12s; }
+  .p3 { left: 30%; animation-duration: 10s; }
+  .p4 { left: 40%; animation-duration: 14s; }
+  .p5 { left: 50%; animation-duration: 9s; }
+  .p6 { left: 60%; animation-duration: 11s; }
+  .p7 { left: 70%; animation-duration: 13s; }
+  .p8 { left: 80%; animation-duration: 7s; }
+  .p9 { left: 90%; animation-duration: 15s; }
+</style>
 
-/* Responsive resize */
-window.addEventListener("resize", function () {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script>
+<div class="particles-bg">
+  
+  <span class="p1"></span>
+  <span class="p2"></span>
+  <span class="p3"></span>
+  <span class="p4"></span>
+  <span class="p5"></span>
+  <span class="p6"></span>
+  <span class="p7"></span>
+  <span class="p8"></span>
+  <span class="p9"></span>
 
-</body>
-</html>
+  <h2 align="center" style="color:white;">
+    ✨ GitHub README Particle Background
+  </h2>
+
+  <p align="center" style="color:#cbd5e1;">
+    Glassmorphism + Floating Animation UI
+  </p>
+
+</div>
