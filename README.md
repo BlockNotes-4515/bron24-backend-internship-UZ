@@ -5,7 +5,7 @@ Backend development projects and contributions for the Bron24 sports venue booki
 <h2 align="center">🖼️ Project Preview</h2>
 
 <p align="center">
-  <img src="BRON24 (UZBEKISTAN) WORK/Bron24 Logo.png" alt="Project Image" width="800"/>
+  <img src="BRON24 (UZBEKISTAN) WORK/Bron24 Logo.png" alt="Project Image" width="100"/>
 </p>
 
 ---
