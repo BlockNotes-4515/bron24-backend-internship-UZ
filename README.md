@@ -1,7 +1,7 @@
-# bron24-backend-internship-UZ
+<h1 align="center">bron24-backend-internship-UZ</h1>
 Backend development projects and contributions for the Bron24 sports venue booking platform during the Summer 2026 International Internship.
 
-# 🇮🇳 **BRON24 BACKEND INTERNSHIP** 🇺🇿
+<h1 align="center"> 🇮🇳 **BRON24 BACKEND INTERNSHIP** 🇺🇿</h1>
 
 ---
 ### **Overview**
