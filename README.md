@@ -4,7 +4,7 @@ Backend development projects and contributions for the Bron24 sports venue booki
 <h1 align="center"> 🇮🇳 **BRON24 BACKEND INTERNSHIP** 🇺🇿</h1>
 <p align="center">
   <h1 align="center">
-  BRON24
+   <img src="BRON24 (UZBEKISTAN) WORK/Bron24 Logo.png" alt="Bron24" width="100"/>
   <img 
     src="https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg" 
     alt="Uzbekistan Flag" 
@@ -12,12 +12,7 @@ Backend development projects and contributions for the Bron24 sports venue booki
     align="right"
   />
 </h1>
-
-<p align="center">
-  <img src="BRON24 (UZBEKISTAN) WORK/Bron24 Logo.png" alt="Bron24" width="100"/>
-</p>
-</p>
-
+  
 ---
 ### **Overview**
 
