@@ -125,3 +125,4 @@ It focuses on building a social + competitive ecosystem where users can find pla
 [cite_start]*This repository is maintained by Dhruv Dhayal as part of the Backend Engineering Internship program.* [cite: 5, 9, 14]
 
 <!-- TAILWIND CSS FOR THE FOOTER -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,25:1e3a8a,50:2563eb,75:38bdf8,100:7dd3fc&height=140&section=footer"/>
