@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bron24 Group / Social Bookings</title>
+    <link rel="icon" type="image/svg+xml" href="assets/main_logo.png">
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Sporty Cursor -->
+    <div class="sports-cursor" id="sportsCursor">⚽</div>
+
+    <!-- Header Section -->
+    <header class="top-header">
+        <div class="logo-section">
+            <a href="https://www.bron24.uz/en" class="logo-section">
+                <div class="logo">
+                    <img src="assets/main_logo.png" alt="Bron24 Logo" width="40" height="40">
+                </div>
+            </a>
+
+            <div class="logo-text">
+                <a href="https://www.bron24.uz/en" class="logo-link">
+                    <h2>Bron24 🇺🇿</h2>
+                    <span>Tashkent, Uzbekistan</span>
+                </a>
+            </div>
+        </div>
+        <!--Navbars-->
+        <nav class="nav-menu">
+            <a href="https://www.bron24.uz/en">Home</a>
+            <a href="https://www.bron24.uz/en/about">About</a>
+            <a href="https://www.bron24.uz/en/partners">Partners</a>
+            <a href="https://www.bron24.uz/en/contact">Contact Us</a>
+        </nav>
+        <!--User's Profile Sidebar-->
+        <div class="header-actions">
+            <img class="profile-img" src="https://i.pravatar.cc/100?img=12" alt="profile">
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <header class="hero-header">
+            <h1>Bron24 PlayTogether</h1>
+            <p>Find players. Share matches. Play more.</p>
+        </header>
+
+        <section id="screen1" class="screen active">
+            <h2>Select Venue</h2>
+            <div class="venue-grid">
+                <div class="venue-card selected" data-price="150000">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000">
+                    <div class="venue-content">
+                        <h3>Football Arena</h3>
+                        <p>📍 Tashkent Center</p>
+                        <span>150,000 UZS</span>
+                    </div>
+                </div>
+
+                <div class="venue-card" data-price="180000">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1000">
+                    <div class="venue-content">
+                        <h3>Cricket Turf</h3>
+                        <p>📍 Yakkasaray</p>
+                        <span>180,000 UZS</span>
+                    </div>
+                </div>
+
+                <div class="venue-card" data-price="130000">
+                    <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=1000">
+                    <div class="venue-content">
+                        <h3>Tennis Court</h3>
+                        <p>📍 Mirabad</p>
+                        <span>130,000 UZS</span>
+                    </div>
+                </div>
+
+                <div class="venue-card" data-price="100000">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000">
+                    <div class="venue-content">
+                        <h3>Basketball Arena</h3>
+                        <p>📍 Downtown</p>
+                        <span>100,000 UZS</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="nextBtn">
+                Continue Booking
+            </button>
+        </section>
+
+        <section id="screen1-time" class="screen">
+
+            <div class="screen-header">
+                <button class="back-btn" onclick="showScreen('screen1')">←</button>
+                <h2>Select Match Date & Time</h2>
+            </div>
+
+            <div class="datetime-picker">
+                <input type="date" id="matchDate" required>
+                <input type="time" id="matchTime" required>
+            </div>
+
+            <button id="nextBtnTime">
+                Continue to Invite
+            </button>
+        </section>
+        <div class="modal-overlay" id="calendarModal">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>Select Match Date</h3>
+                    <button class="close-modal-btn" id="closeCalendar">×</button>
+                </div>
+                <div class="calendar-controls">
+                    <button id="prevMonth">←</button>
+                    <h4 id="calendarMonthYear"></h4>
+                    <button id="nextMonth">→</button>
+                </div>
+                <div class="calendar-weekdays">
+                    <div>Su</div>
+                    <div>Mo</div>
+                    <div>Tu</div>
+                    <div>We</div>
+                    <div>Th</div>
+                    <div>Fr</div>
+                    <div>Sa</div>
+                </div>
+                <div class="calendar-days-grid" id="calendarDays">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="timeModal">
+            <div class="modal-box time-picker-box">
+                <div class="modal-header">
+                    <h3>Select Kickoff Time</h3>
+                    <button class="close-modal-btn" id="closeTime">×</button>
+                </div>
+
+                <div class="time-selector-engine">
+                    <div class="time-column">
+                        <span class="arrow-up" id="hourUp">▲</span>
+                        <div class="time-num-display" id="hourDisplay">18</div>
+                        <span class="arrow-down" id="hourDown">▼</span>
+                    </div>
+
+                    <div class="time-colon">:</div>
+
+                    <div class="time-column">
+                        <span class="arrow-up" id="minUp">▲</span>
+                        <div class="time-num-display" id="minDisplay">00</div>
+                        <span class="arrow-down" id="minDown">▼</span>
+                    </div>
+                    <div class="ampm-toggle-container">
+                        <button type="button" class="ampm-btn" id="amBtn">AM</button>
+                        <button type="button" class="ampm-btn" id="pmBtn">PM</button>
+                    </div>
+                </div>
+
+                <button class="modal-confirm-btn" id="confirmTimeBtn">Confirm Entry Time</button>
+            </div>
+        </div>
+        <div class="modal-overlay" id="addFriendModal">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>Add New Player</h3>
+                    <button class="close-modal-btn" id="closeAddFriend">×</button>
+                </div>
+                <div class="modal-body" style="margin-top: 15px;">
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <input type="text" id="friendNameInput" class="modal-input" placeholder="Enter player name..."
+                            autocomplete="off">
+                        <span id="friendNameError" class="modal-error"></span>
+                    </div>
+                </div>
+                <button class="modal-confirm-btn" id="confirmAddFriendBtn"
+                    style="margin-top: 20px; background: #22C55E;">Add Player</button>
+            </div>
+        </div>
+
+
+        <section id="screen2" class="screen">
+
+            <div class="screen-header">
+                <button class="back-btn" onclick="showScreen('screen1-time')">←</button>
+                <h2>Invite Friends</h2>
+                <!--Adding the Button -->
+                <button id="addFriendBtn">Add New +</button>
+            </div>
+
+            <div class="friend-list">
+                <!-- Dynamically populated or empty placeholder -->
+            </div>
+
+            <div class="summary-box">
+
+                <p>
+                    Selected Players:
+                    <span id="playerCount">
+                        1
+                    </span>
+                </p>
+
+                <p>
+                    Per Person:
+                    <span id="splitAmount">
+                        150000
+                    </span> UZS
+                </p>
+
+            </div>
+
+            <button id="paymentBtn">
+                Continue To Payment
+            </button>
+
+        </section>
+
+
+
+        <section id="screen3" class="screen">
+
+            <div class="screen-header">
+                <button class="back-btn" onclick="showScreen('screen2')">←</button>
+                <h2>Payment</h2>
+            </div>
+
+            <div class="payment-card">
+
+                <h3>
+                    Payment Summary
+
+                </h3>
+
+                <p>
+                    Venue:
+                    <span id="venueName">
+                        Football Arena
+                    </span>
+                </p>
+
+                <p>
+                    Players:
+                    <span id="finalPlayers">
+                        1
+                    </span>
+                </p>
+
+                <p>
+                    Amount Per Person:
+                    <span id="finalAmount">
+                        150000
+                    </span> UZS
+                </p>
+
+                <button id="payNow">
+
+                    Pay Now
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+        <section id="screen4" class="screen">
+
+            <div class="success">
+
+                <h1>
+
+                    ✅ Match Confirmed
+
+                </h1>
+
+                <p>
+
+                    Players Joined
+
+                </p>
+
+                <div class="link-box">
+                </div>
+
+                <div class="qr-container">
+                    <div class="qr-box-inner" id="checkoutQr"></div>
+                    <span class="qr-caption">Scan at Venue to Confirm Booking</span>
+                </div>
+
+                <div class="share-dashboard">
+                    <button id="shareBtn" class="share-btn-primary">
+                        🔗 Share Match Pass
+                    </button>
+                    <div class="social-share-row">
+                        <button id="shareTelegramBtn" class="share-btn-telegram">
+                            ✈ Telegram
+                        </button>
+                        <button id="shareWhatsappBtn" class="share-btn-whatsapp">
+                            💬 WhatsApp
+                        </button>
+                    </div>
+                    <button id="copyBtn" class="share-btn-copy">
+                        📋 Copy Pass Link
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</body>
+
+</html>

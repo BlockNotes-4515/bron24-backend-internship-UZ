@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bron24 Group / Social Bookings</title>
+    <link rel="icon" type="image/svg+xml" href="assets/main_logo.png">
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="top-header">
+        <div class="logo-section">
+            <div class="logo">
+                <img src="assets/main_logo.png" alt="Bron24 Logo" width="40" height="40">
+            </div>
+
+            <div class="logo-text">
+                <h2>Bron24 🇺🇿</h2>
+                <span>Tashkent, Uzbekistan</span>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <img class="profile-img" src="https://i.pravatar.cc/100?img=12" alt="profile">
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <header class="hero-header">
+
+            <h1>Bron24 PlayTogether</h1>
+
+            <p>Find players. Share matches. Play more.</p>
+
+        </header>
+
+
+        <section id="screen1" class="screen active">
+
+            <h2>Select Venue</h2>
+
+            <div class="venue-grid">
+
+
+                <div class="venue-card" data-price="150000">
+
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000">
+
+                    <div class="venue-content">
+
+                        <h3>Football Arena</h3>
+
+                        <p>📍 Tashkent Center</p>
+
+                        <span>150,000 UZS</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="venue-card" data-price="180000">
+
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1000">
+
+                    <div class="venue-content">
+
+                        <h3>Cricket Turf</h3>
+
+                        <p>📍 Yakkasaray</p>
+
+                        <span>180,000 UZS</span>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="venue-card" data-price="130000">
+
+                    <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=1000">
+
+                    <div class="venue-content">
+
+                        <h3>Tennis Court</h3>
+
+                        <p>📍 Mirabad</p>
+
+                        <span>130,000 UZS</span>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="venue-card" data-price="100000">
+
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000">
+
+                    <div class="venue-content">
+
+                        <h3>Basketball Arena</h3>
+
+                        <p>📍 Downtown</p>
+
+                        <span>100,000 UZS</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button id="nextBtn">
+Continue Booking
+</button>
+
+        </section>
+
+
+
+
+
+        <section id="screen2" class="screen">
+
+            <h2>Invite Friends</h2>
+
+            <div class="friend-list">
+
+                <label class="friend">
+<input type="checkbox" value="Anurag">
+Anurag
+</label>
+
+                <label class="friend">
+<input type="checkbox" value="Rahul">
+Rahul
+</label>
+
+                <label class="friend">
+<input type="checkbox" value="Aryan">
+Aryan
+</label>
+
+            </div>
+
+            <div class="summary-box">
+
+                <p>
+                    Selected Players:
+                    <span id="playerCount">
+1
+</span>
+                </p>
+
+                <p>
+                    Per Person:
+                    <span id="splitAmount">
+150000
+</span> UZS
+                </p>
+
+            </div>
+
+            <button id="paymentBtn">
+Continue To Payment
+</button>
+
+        </section>
+
+
+
+
+
+        <section id="screen3" class="screen">
+
+            <h2>Payment</h2>
+
+            <div class="payment-card">
+
+                <h3>
+                    Payment Summary
+                </h3>
+
+                <p>
+                    Venue:
+                    <span id="venueName">
+Football Arena
+</span>
+                </p>
+
+                <p>
+                    Players:
+                    <span id="finalPlayers">
+1
+</span>
+                </p>
+
+                <p>
+                    Amount Per Person:
+                    <span id="finalAmount">
+150000
+</span> UZS
+                </p>
+
+                <button id="payNow">
+
+Pay Now
+
+</button>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+        <section id="screen4" class="screen">
+
+            <div class="success">
+
+                <h1>
+
+                    ✅ Match Confirmed
+
+                </h1>
+
+                <p>
+
+                    Players Joined
+
+                </p>
+
+                <div class="link-box">
+                </div>
+                <button id="copyBtn">
+
+Copy Match Link
+
+</button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

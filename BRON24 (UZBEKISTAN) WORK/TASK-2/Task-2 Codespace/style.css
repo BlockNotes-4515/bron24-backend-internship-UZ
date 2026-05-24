@@ -1,0 +1,1469 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+body {
+    background: #09111B;
+    color: white;
+    padding: 20px;
+}
+
+
+/*========== CURSOR STYLING ============*/
+
+body {
+    cursor: none;
+}
+
+.sports-cursor {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: left 0.15s linear, top 0.15s linear, transform 0.3s ease;
+}
+
+
+/*CURSOR POINTERS*/
+
+container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 34px;
+}
+
+header p {
+    color: #9ba5b3;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.venue-card {
+    background: #121B26;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    border: 2px solid transparent;
+}
+
+.venue-card:hover {
+    transform: translateY(-5px);
+}
+
+.venue-card.selected {
+    border: 2px solid #22C55E;
+}
+
+.venue-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.venue-content {
+    padding: 15px;
+}
+
+.venue-content p {
+    color: #9ba5b3;
+    margin: 8px 0;
+}
+
+.venue-content span {
+    color: #22C55E;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: #22C55E;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.time-card {
+    background: #121B26;
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: .3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-card:hover {
+    transform: translateY(-5px);
+}
+
+.time-card.selected {
+    border-color: #22C55E;
+    box-shadow: 0 0 15px rgba(34, 197, 94, .15);
+}
+
+.time-content h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.time-content p {
+    color: #9ba5b3;
+    font-size: 14px;
+}
+
+.screen-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.screen-header h2 {
+    margin-bottom: 0;
+}
+
+.back-btn {
+    width: auto;
+    margin-top: 0;
+    padding: 0 10px;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #22C55E;
+}
+
+
+/* Specific styling for the Add New button */
+
+#addFriendBtn {
+    background-color: #22C55E;
+    /* Green theme */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#addFriendBtn:hover {
+    background-color: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3);
+}
+
+#addFriendBtn:active {
+    transform: translateY(0);
+}
+
+
+/*================ Date-Time-Picker-Mapping ===============*/
+
+
+/* --- Styling the Datetime Picker Input Bars to look like Tabs --- */
+
+.datetime-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+
+/* Transform native input elements into stylish interactive tabs */
+
+.datetime-picker input[type="date"],
+.datetime-picker input[type="time"] {
+    background: #1B2634;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 18px 20px;
+    color: #E2E8F0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    text-align: left;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Custom indicator states */
+
+.datetime-picker input[type="date"]:hover,
+.datetime-picker input[type="time"]:hover {
+    border-color: #22C55E;
+    background: #233246;
+}
+
+
+/* Hide standard system calendar arrows/spinners inside modern browsers */
+
+.datetime-picker input::-webkit-calendar-picker-indicator {
+    font-size: 18px;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+
+/* --- Popups Base Modal Overlays --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(5, 10, 17, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background: #121B26;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 360px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(15px) scale(0.97);
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.open .modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.close-modal-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: none;
+    color: #94A3B8;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+
+/* --- Calendar Content Styling --- */
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.calendar-controls button {
+    background: #1B2634;
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    color: #64748B;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.calendar-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-day {
+    padding: 8px 0;
+    font-size: 13px;
+    color: #E2E8F0;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.calendar-day:hover:not(.empty) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-day.active-day {
+    background: #22C55E !important;
+    color: white !important;
+    font-weight: 700;
+}
+
+.calendar-day.empty {
+    cursor: default;
+}
+
+
+/* --- Custom Time Picker Styling --- */
+
+.time-selector-engine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.time-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.time-num-display {
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    background: #1B2634;
+    padding: 6px 14px;
+    border-radius: 12px;
+    min-width: 70px;
+    text-align: center;
+}
+
+.arrow-up,
+.arrow-down {
+    color: #22C55E;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 8px;
+}
+
+.time-colon {
+    font-size: 32px;
+    font-weight: 800;
+    color: #64748B;
+}
+
+.modal-confirm-btn {
+    width: 100%;
+    background: #1B2634;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.modal-confirm-btn:hover {
+    background: #22C55E;
+    border-color: #22C55E;
+}
+
+
+/* AM / PM Segment Side Stack Layout */
+
+.ampm-toggle-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 8px;
+}
+
+.ampm-btn {
+    background: #1B2634;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    color: #64748B;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ampm-btn.active {
+    background: #22C55E;
+    border-color: #22C55E;
+    color: white;
+}
+
+.friend {
+    display: block;
+    padding: 15px;
+    background: #121B26;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.payment-card,
+.success {
+    background: #121B26;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.summary-box {
+    background: rgba(34, 197, 94, 0.08);
+    /* Transparent subtle green background */
+    border-radius: 12px;
+    /* Smoothed rounded corners */
+    border-left: 4px solid #22C55E;
+    /* Thick vibrant green left border accent */
+    padding: 15px 20px;
+    /* Balanced internal spacing */
+    font-size: 15px;
+    /* Clean text sizing */
+    color: #CBD5E1;
+    /* Light grayish white text color */
+    line-height: 1.6;
+    /* Comfortable reading space */
+    display: flex;
+    /* Flex layout to keep items structured */
+    flex-direction: column;
+    /* Elements flow downwards */
+    gap: 6px;
+    /* Clean air gap between the two text lines */
+    max-width: 100%;
+    /* Responsive container scaling */
+    margin: 15px 0;
+    /* External spacing from other elements */
+}
+
+
+/* Ensure the numbers and currencies look bold and professional */
+
+.summary-box p {
+    margin: 0;
+    /* Strip out default browser margins */
+}
+
+.summary-box span,
+.summary-box p {
+    font-weight: 500;
+    /* Slightly medium bold weight for clarity */
+}
+
+.link-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #000000;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, .05);
+    word-break: break-word;
+    text-align: center;
+    font-size: 14px;
+    transition: .4s;
+}
+
+.link-box:hover {
+    border-color: #22C55E;
+    box-shadow: 0 0 20px rgba(34, 197, 94, .15);
+}
+
+.link-box a {
+    color: #22C55E;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-box a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= HEADER ================= */
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #121B26;
+    padding: 16px 22px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, .05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #040504;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+.logo-text h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.logo-text span {
+    font-size: 13px;
+    color: #9ba5b3;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #1A2432;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-btn:hover {
+    background: #22C55E;
+    transform: translateY(-2px);
+}
+
+.profile-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #22C55E;
+}
+
+
+/* Header Section of the Wedev with glowing hover animations */
+
+
+/* This section includes the main header with logo, navigation, and profile picture. It features a glowing hover effect that enhances interactivity and visual appeal. The logo and text also have subtle animations to create a dynamic user experience. */
+
+.top-header {
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #e6d3a3;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 0;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.nav-menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #39d353;
+    border-radius: 20px;
+    transition: width .35s ease;
+}
+
+.nav-menu a:hover {
+    color: #ffffff;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+
+/* Laptop */
+
+@media (max-width:1024px) {
+    .nav-menu {
+        gap: 20px;
+    }
+    .nav-menu a {
+        font-size: 14px;
+    }
+}
+
+
+/* Hide on tablets + phones */
+
+@media (max-width:768px) {
+    .nav-menu {
+        display: none;
+    }
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: #121B26;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, .05);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+
+/* Shine animation */
+
+.top-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 90deg, transparent, rgba(34, 197, 94, .12), transparent);
+    transition: .8s ease;
+}
+
+.top-header:hover::before {
+    left: 100%;
+}
+
+
+/* Main hover effect */
+
+.top-header:hover {
+    transform: translateY(-5px);
+    border-color: #22C55E;
+    box-shadow: 0 0 20px rgba(34, 197, 94, .15), 0 0 40px rgba(34, 197, 94, .08);
+}
+
+
+/* Logo animation */
+
+.logo {
+    transition: .4s ease;
+}
+
+.top-header:hover .logo {
+    transform: scale(1.08) rotate(-5deg);
+}
+
+
+/* Text animation */
+
+.logo-text h2,
+.logo-text span {
+    transition: .4s ease;
+}
+
+.top-header:hover .logo-text h2 {
+    color: #22C55E;
+    letter-spacing: .5px;
+}
+
+.top-header:hover .logo-text span {
+    color: white;
+}
+
+
+/* Profile animation */
+
+.profile-img {
+    transition: .4s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(34, 197, 94, .4);
+}
+
+
+/* Responsive */
+
+@media(max-width:768px) {
+    .top-header {
+        padding: 14px;
+    }
+    .logo-text h2 {
+        font-size: 16px;
+    }
+    .logo-text span {
+        font-size: 11px;
+    }
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+    .profile-img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/*================== Container Header Styling ===================*/
+
+.hero-header {
+    background: #121B26;
+    padding: 30px;
+    border-radius: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+
+/* animated shine */
+
+.hero-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 90deg, transparent, rgba(34, 197, 94, 0.15), transparent);
+    transition: .8s;
+}
+
+.hero-header:hover::before {
+    left: 100%;
+}
+
+
+/* card lift effect */
+
+.hero-header:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 0px 35px rgba(34, 197, 94, .25);
+    border-color: #22C55E;
+}
+
+.hero-header h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: white;
+    transition: .4s;
+}
+
+.hero-header p {
+    font-size: 15px;
+    color: #9BA5B3;
+    transition: .4s;
+}
+
+.hero-header:hover h1 {
+    color: #22C55E;
+    letter-spacing: 1px;
+}
+
+.hero-header:hover p {
+    color: white;
+}
+
+
+/* Mobile */
+
+@media(max-width:768px) {
+    .hero-header {
+        padding: 22px;
+    }
+    .hero-header h1 {
+        font-size: 28px;
+    }
+    .hero-header p {
+        font-size: 13px;
+    }
+}
+
+
+/*=========  PAYMENT SUMMARY CARD LAYOUT STYLING ===============*/
+
+
+/* --- The Main Airplane Ticket Container --- */
+
+
+/* --- Updated Payment Card with Safe Page Flow Centering --- */
+
+.payment-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 780px;
+    /* Perfect airline boarding pass width */
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+    /* Keeps it in normal page order so it stays below the header */
+    overflow: hidden;
+    /* Centering Magic: Centers horizontally within its container without breaking layout */
+    margin: 40px auto;
+    /* Layout structural spaces */
+    padding: 100px 280px 40px 40px;
+    box-sizing: border-box;
+    min-height: 300px;
+    /* Arranges details inside side-by-side */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    /* Smooth transitions when the screen resizes dynamically */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* We use h3 now to create the clean vertical dashed separation line instead */
+
+.payment-card h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 245px;
+    width: 0px;
+    border-left: 2px dashed #cbd5e1;
+}
+
+
+/* --- 3. Circle Ticket Punch Notches --- */
+
+h3::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #0b1523;
+    /* Matches page background to cut inward */
+    border-radius: 50%;
+    right: 233px;
+    bottom: -12px;
+    /* Bottom notch */
+    z-index: 10;
+}
+
+
+/* --- 4.The Sweet Green Patchy Hover Effect --- */
+
+.payment-card:hover {
+    /* Smoothly switch to an ultra-soft, sweet minty ticket background tint */
+    background-color: #f6faf4;
+    /* Lift the ticket slightly for physical dimension */
+    transform: translateY(-5px) scale(1.01);
+    /* Dual Shadow: Layer 1 is standard shadow, Layer 2 is the beautiful, soft Bron24 green aura glow */
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 166, 81, 0.14);
+}
+
+
+/*Barcode Generation */
+
+
+/* --- 5. Top Airline Banner Layout --- */
+
+.payment-card::before {
+    content: 'BRON24 FIELD BOOKING ✈  |  MATCH ID: B24-8149';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background: #00A651;
+    /* Bron24 Green */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
+
+
+/* --- 4. Perforation & Circular Ticket Notches --- */
+
+.payment-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 245px;
+    /* Separation line location */
+    width: 0px;
+    border-left: 2px dashed #cbd5e1;
+}
+
+
+/* Punched ticket geometry notches */
+
+h3::before,
+h3::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #0b1523;
+    /* Cuts into the ticket by matching the body background */
+    border-radius: 50%;
+    right: 233px;
+    z-index: 10;
+}
+
+h3::before {
+    top: 43px;
+}
+
+
+/* Top ticket hole alignment */
+
+h3::after {
+    bottom: -12px;
+}
+
+
+/* Bottom ticket hole alignment */
+
+
+/* --- 5. Data & Font Styling --- */
+
+.payment-card h3 {
+    grid-column: span 2;
+    margin: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+}
+
+.payment-card p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.payment-card p span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 6px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+
+/* --- 6. The Right Tear-Off Stub (Amount & Button) --- */
+
+
+/* Target Amount Area */
+
+.payment-card p:nth-of-type(3) {
+    position: absolute;
+    right: 25px;
+    top: 95px;
+    width: 195px;
+    text-align: center;
+    align-items: center;
+}
+
+#finalAmount {
+    color: #00A651;
+    /* Amount highlighted in Bron24 Green */
+    font-size: 32px;
+}
+
+
+/* Target Action Button */
+
+#payNow {
+    position: absolute;
+    right: 25px;
+    bottom: 35px;
+    width: 195px;
+    background: #0f172a;
+    /* Dark sleek barcode balance */
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    transition: background 0.2s, transform 0.1s;
+}
+
+#payNow:hover {
+    background: #00A651;
+}
+
+#payNow:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================================================
+   7. DYNAMIC RESPONSIVE BREAKPOINT (Mobile Screens)
+   ========================================================================== */
+
+@media (max-width: 720px) {
+    body {
+        padding: 12px;
+    }
+    .payment-card {
+        /* Flips the card configuration into a clean stacked layout */
+        padding: 85px 24px 30px 24px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 420px;
+        /* Standard phone-friendly card size */
+    }
+    /* Converts horizontal tear-off graphics into a clean vertical divider line */
+    .payment-card::after {
+        top: auto;
+        bottom: 155px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 0px;
+        border-left: none;
+        border-top: 2px dashed #cbd5e1;
+    }
+    /* Shift ticket cutouts to sit nicely on the left and right sides instead of top/bottom */
+    h3::before,
+    h3::after {
+        top: auto;
+        bottom: 143px;
+        right: auto;
+    }
+    h3::before {
+        left: -12px;
+    }
+    /* Left side cut-in */
+    h3::after {
+        right: -12px;
+    }
+    /* Right side cut-in */
+    /* Un-pin absolute elements so they adapt dynamically to the mobile space flow */
+    .payment-card p:nth-of-type(3),
+    #payNow {
+        position: static;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+    .payment-card p:nth-of-type(3) {
+        margin-top: 25px;
+        /* Adds space directly right below the vertical tear line */
+    }
+    #payNow {
+        margin-top: 15px;
+    }
+}
+
+/* Styling for Add Friend Input inside Modal */
+.modal-input {
+    background: #1B2634;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #E2E8F0;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.modal-input:focus {
+    border-color: #22C55E;
+    background: #233246;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
+}
+
+.modal-error {
+    color: #EF4444;
+    font-size: 13px;
+    margin-top: 6px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Friend list styling overrides for dynamic items */
+.friend-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #121B26;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.friend-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(34, 197, 94, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.friend-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.friend-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #22C55E;
+    cursor: pointer;
+}
+
+.friend-label span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #E2E8F0;
+}
+
+.remove-friend-btn {
+    width: auto !important;
+    margin-top: 0 !important;
+    padding: 4px 10px !important;
+    background: transparent !important;
+    color: #EF4444 !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    border: none !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.remove-friend-btn:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #F87171 !important;
+    transform: scale(1.1);
+}
+
+.empty-friends-placeholder {
+    text-align: center;
+    padding: 40px 20px;
+    color: #9ba5b3;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px dashed rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+/* QR Code Container on Success Screen */
+.qr-container {
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 24px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 280px;
+    transition: all 0.3s ease;
+}
+
+.qr-container:hover {
+    border-color: #22C55E;
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.1);
+}
+
+.qr-box-inner {
+    padding: 12px;
+    background: #ffffff;
+    border-radius: 14px;
+    display: inline-block;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.qr-box-inner img {
+    display: block;
+}
+
+.qr-caption {
+    font-size: 13px;
+    color: #9ba5b3;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Success Sharing Dashboard Styles */
+.share-dashboard {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.share-btn-primary {
+    background: #22C55E !important;
+    color: white !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 16px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2) !important;
+    transition: all 0.2s ease !important;
+}
+
+.share-btn-primary:hover {
+    background: #16a34a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35) !important;
+}
+
+.social-share-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.share-btn-telegram {
+    flex: 1 !important;
+    background: #0088cc !important;
+    color: white !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 14px !important;
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.15) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+.share-btn-telegram:hover {
+    background: #0077b3 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0, 136, 204, 0.25) !important;
+}
+
+.share-btn-whatsapp {
+    flex: 1 !important;
+    background: #25D366 !important;
+    color: white !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 14px !important;
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+.share-btn-whatsapp:hover {
+    background: #20ba5a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25) !important;
+}
+
+.share-btn-copy {
+    background: #1B2634 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: #94A3B8 !important;
+    margin-top: 0 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 14px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+.share-btn-copy:hover {
+    background: #233246 !important;
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Secondary Share button on Ticket View */
+.share-pass-btn {
+    background: #1A2432 !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 16px 32px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 12px !important;
+}
+
+.share-pass-btn:hover {
+    background: #233145 !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+    transform: translateY(-2px) !important;
+}

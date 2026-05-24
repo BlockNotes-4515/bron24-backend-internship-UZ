@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+body {
+    background: #09111B;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 34px;
+}
+
+header p {
+    color: #9ba5b3;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.venue-card {
+    background: #121B26;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    border: 2px solid transparent;
+}
+
+.venue-card:hover {
+    transform: translateY(-5px);
+}
+
+.venue-card.selected {
+    border: 2px solid #22C55E;
+}
+
+.venue-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.venue-content {
+    padding: 15px;
+}
+
+.venue-content p {
+    color: #9ba5b3;
+    margin: 8px 0;
+}
+
+.venue-content span {
+    color: #22C55E;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: #22C55E;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.friend {
+    display: block;
+    padding: 15px;
+    background: #121B26;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.summary-box,
+.payment-card,
+.success {
+    background: #121B26;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.link-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #000000;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, .05);
+    word-break: break-word;
+    text-align: center;
+    font-size: 14px;
+    transition: .4s;
+}
+
+.link-box:hover {
+    border-color: #22C55E;
+    box-shadow: 0 0 20px rgba(34, 197, 94, .15);
+}
+
+.link-box a {
+    color: #22C55E;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-box a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= HEADER ================= */
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #121B26;
+    padding: 16px 22px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, .05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #040504;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+.logo-text h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+
+.logo-text span {
+    font-size: 13px;
+    color: #9ba5b3;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #1A2432;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-btn:hover {
+    background: #22C55E;
+    transform: translateY(-2px);
+}
+
+.profile-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #22C55E;
+}
+
+
+/* Header Section of the Wedev with glowing hover animations */
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: #121B26;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, .05);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+
+/* Shine animation */
+
+.top-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 90deg, transparent, rgba(34, 197, 94, .12), transparent);
+    transition: .8s ease;
+}
+
+.top-header:hover::before {
+    left: 100%;
+}
+
+
+/* Main hover effect */
+
+.top-header:hover {
+    transform: translateY(-5px);
+    border-color: #22C55E;
+    box-shadow: 0 0 20px rgba(34, 197, 94, .15), 0 0 40px rgba(34, 197, 94, .08);
+}
+
+
+/* Logo animation */
+
+.logo {
+    transition: .4s ease;
+}
+
+.top-header:hover .logo {
+    transform: scale(1.08) rotate(-5deg);
+}
+
+
+/* Text animation */
+
+.logo-text h2,
+.logo-text span {
+    transition: .4s ease;
+}
+
+.top-header:hover .logo-text h2 {
+    color: #22C55E;
+    letter-spacing: .5px;
+}
+
+.top-header:hover .logo-text span {
+    color: white;
+}
+
+
+/* Profile animation */
+
+.profile-img {
+    transition: .4s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(34, 197, 94, .4);
+}
+
+
+/* Responsive */
+
+@media(max-width:768px) {
+    .top-header {
+        padding: 14px;
+    }
+    .logo-text h2 {
+        font-size: 16px;
+    }
+    .logo-text span {
+        font-size: 11px;
+    }
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+    .profile-img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/*================== Container Header Styling ===================*/
+
+.hero-header {
+    background: #121B26;
+    padding: 30px;
+    border-radius: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+
+/* animated shine */
+
+.hero-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 90deg, transparent, rgba(34, 197, 94, 0.15), transparent);
+    transition: .8s;
+}
+
+.hero-header:hover::before {
+    left: 100%;
+}
+
+
+/* card lift effect */
+
+.hero-header:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 0px 35px rgba(34, 197, 94, .25);
+    border-color: #22C55E;
+}
+
+.hero-header h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: white;
+    transition: .4s;
+}
+
+.hero-header p {
+    font-size: 15px;
+    color: #9BA5B3;
+    transition: .4s;
+}
+
+.hero-header:hover h1 {
+    color: #22C55E;
+    letter-spacing: 1px;
+}
+
+.hero-header:hover p {
+    color: white;
+}
+
+
+/* Mobile */
+
+@media(max-width:768px) {
+    .hero-header {
+        padding: 22px;
+    }
+    .hero-header h1 {
+        font-size: 28px;
+    }
+    .hero-header p {
+        font-size: 13px;
+    }
+}
